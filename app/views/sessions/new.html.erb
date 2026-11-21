@@ -1,0 +1,14 @@
+<h1>Mini LMS</h1>
+
+<% if session[:user_id].present? %>
+  <p>You are logged in.</p>
+
+  <%= button_to "Logout", logout_path, method: :post %>
+<% else %>
+  <p>Welcome! Please sign in.</p>
+
+  <%= button_to "Login with Mini-AMS",
+              "/auth/mini_ams",
+              method: :post,
+              data: { turbo: false }%>
+<% end %>
